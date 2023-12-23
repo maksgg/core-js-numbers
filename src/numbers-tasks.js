@@ -567,8 +567,8 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
-  const add = (a, b) => a + b;
-  return add(add(x1, x2), x3);
+  const sum = x1 + x2 + x3;
+  return sum.toFixed(1);
 }
 
 /**
