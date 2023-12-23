@@ -458,8 +458,8 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  const parsedFloat = parseFloat(str);
-  return Number.isNaN(parsedFloat) ? NaN : parsedFloat;
+  const parsedNumber = Number.parseFloat(str);
+  return Number.isNaN(parsedNumber) ? NaN : parsedNumber;
 }
 
 /**
@@ -477,8 +477,8 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  const parsedInteger = parseInt(str, base);
-  return Number.isNaN(parsedInteger) ? NaN : parsedInteger;
+  const parsedNumber = Number.parseInt(str, base);
+  return Number.isNaN(parsedNumber) ? NaN : Math.floor(parsedNumber);
 }
 
 /**
@@ -631,23 +631,7 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  return Math.ceil((number + 1) / 2);
-}
-
-/**
- * Returns the result of concatenation of two strings.
- *
- * @param {string} value1
- * @param {string} value2
- * @return {string}
- *
- * @example
- *   'aa', 'bb' => 'aabb'
- *   'aa',''    => 'aa'
- *   '',  'bb'  => 'bb'
- */
-function concatenateStrings(value1, value2) {
-  return value1 + value2;
+  return Math.floor((number + 1) / 2);
 }
 
 module.exports = {
@@ -688,5 +672,4 @@ module.exports = {
   getRandomInteger,
   getHypotenuse,
   getCountOfOddNumbers,
-  concatenateStrings,
 };
