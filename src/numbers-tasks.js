@@ -49,8 +49,8 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -631,9 +631,7 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  return [...Array(number + 1).keys()]
-    .map((_, i) => i)
-    .filter((num) => num % 2 !== 0).length;
+  return Math.ceil((number + 1) / 2);
 }
 
 /**
