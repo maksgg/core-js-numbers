@@ -215,16 +215,12 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  if (n < 2) {
-    return false;
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
   }
-
-  for (let i = 2; i <= Math.sqrt(n); i) {
-    if (n % i === 0) {
-      return false;
-    }
-  }
-
   return true;
 }
 
@@ -277,14 +273,8 @@ function getCube(num) {
  *   10 => 55
  */
 function getFibonacciNumber(index) {
-  let a = 0;
-  let b = 1;
-  for (let i = 2; i <= index; i) {
-    const temp = a + b;
-    a = b;
-    b = temp;
-  }
-  return index === 0 ? a : b;
+  const phi = (1 + Math.sqrt(5)) / 2;
+  return Math.round(phi ** index / Math.sqrt(5));
 }
 
 /**
@@ -314,14 +304,10 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
-  const numString = Math.abs(num).toString();
-  let sum = 0;
-
-  for (let i = 0; i < numString.length; i) {
-    sum += parseInt(numString[i], 10);
-  }
-
-  return sum;
+  return num
+    .toString()
+    .split('')
+    .reduce((sum, digit) => sum + Number(digit), 0);
 }
 
 /**
@@ -648,13 +634,7 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  const count = 0;
-  for (let i = 0; i <= number; i) {
-    if (i % 2 !== 0) {
-      getCountOfOddNumbers();
-    }
-  }
-  return count;
+  return number + 1 > 1;
 }
 
 /**
